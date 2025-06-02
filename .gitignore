@@ -11,6 +11,15 @@ obj/
 *.cache/
 *.log
 
+obj/
+bin/
+*.user
+*.suo
+bin/
+obj/
+Properties/
+
+
 # Entity Framework Migrations (optional)
 # Remove this line if you want to track them
 Migrations/
