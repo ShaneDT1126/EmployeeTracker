@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,6 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EmployeeTracker.API\Controllers\" />
+    <Folder Include="EmployeeTracker.Application\Interfaces\" />
+    <Folder Include="EmployeeTracker.Application\DTOs\" />
+    <Folder Include="EmployeeTracker.Application\Services\" />
+    <Folder Include="EmployeeTracker.Domain\Entities\" />
+    <Folder Include="EmployeeTracker.Domain\Enums\" />
+    <Folder Include="EmployeeTracker.Infrastructure\Data\" />
+    <Folder Include="EmployeeTracker.Infrastructure\Repositories\" />
+    <Folder Include="EmployeeTracker.Shared\Helpers\" />
   </ItemGroup>
 
 </Project>
