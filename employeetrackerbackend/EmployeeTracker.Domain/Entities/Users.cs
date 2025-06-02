@@ -1,16 +1,23 @@
 ﻿using EmployeeTrackerBackend.EmployeeTracker.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 {
     public class Users
     {
         public Guid Id { get; set; }
+        [Required(ErrorMessage = "First name is required")]
+        [StringLength(100, ErrorMessage = "First name cannot be longer than 100 characters")]
         public string FirstName { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Last name is required")]
+        [StringLength(100, ErrorMessage = "Last name cannot be longer than 100 characters")]
         public string LastName { get; set; } = string.Empty;
+        [EmailAddress(ErrorMessage = "Email is required")]
         public string Email { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(150, ErrorMessage = "Password must be at least 6 characters long", MinimumLength = 8)]
         public string Password { get; set; } = string.Empty;
-        public UserRole role { get; set; } = UserRole.Employee; // Default role is Employee
-        public string Role { get; set; } = string.Empty;
+        public UserRole Role { get; set; } = UserRole.Employee; // Default role is Employee
         public Guid? ManagerId { get; set; }
         public int? DepartmentId { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
