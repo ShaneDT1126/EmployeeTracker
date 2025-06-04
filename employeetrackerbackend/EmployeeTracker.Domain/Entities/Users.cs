@@ -31,7 +31,5 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
         public ICollection<Goals>? Goals { get; set; } = new List<Goals>(); // Navigation property for goals
         public ICollection <Goals>? ManagedGoals { get; set; } = new List<Goals>(); // Goals created and managed by this user
         public ICollection<Evaluations>? Evaluations { get; set; } = new List<Evaluations>(); // Navigation property for evaluations
-
-
     }
 }
