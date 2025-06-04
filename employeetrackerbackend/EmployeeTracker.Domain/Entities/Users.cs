@@ -18,8 +18,17 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
         [StringLength(150, ErrorMessage = "Password must be at least 6 characters long", MinimumLength = 8)]
         public string Password { get; set; } = string.Empty;
         public UserRole Role { get; set; } = UserRole.Employee; // Default role is Employee
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        //Foreign keys
         public Guid? ManagerId { get; set; }
         public int? DepartmentId { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // Navigation properties
+        public Users? Manager { get; set; } // Self-referencing relationship for manager
+        public ICollection<Users>? TeamMembers { get; set; } // Team members under this manager
+        public Departments Departments { get; set; } = new Departments(); // Navigation property for department
+
+
     }
 }
