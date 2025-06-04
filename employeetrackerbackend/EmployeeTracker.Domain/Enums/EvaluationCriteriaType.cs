@@ -5,16 +5,16 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Enums
     public enum EvaluationCriteriaType
     {
         [Display(Name = "Communication Skills")]
-        Communication = 0,
+        Communication = 1,
         [Display(Name = "Teamwork")]
-        Teamwork = 1,
+        Teamwork = 2,
         [Display(Name = "Problem Solving")]
-        ProblemSolving = 2,
+        ProblemSolving = 3,
         [Display(Name = "Initiative")]
-        Initiative = 3,
+        Initiative = 4,
         [Display(Name = "Attendance")]
-        Attendance = 4,
+        Attendance = 5,
         [Display(Name = "Technical Skills")]
-        TechnicalSkills = 5,
+        TechnicalSkills = 6,
     }
 }

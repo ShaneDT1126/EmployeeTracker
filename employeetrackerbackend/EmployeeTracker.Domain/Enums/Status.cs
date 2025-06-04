@@ -5,10 +5,10 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Enums
     public enum Status
     {
         [Display(Name = "Not Started")]
-        NotStarted = 0,
+        NotStarted = 1,
         [Display(Name = "In Progress")]
-        InProgress = 1,
+        InProgress = 2,
         [Display(Name = "Completed")]
-        Completed = 2,
+        Completed = 3,
     }
 }

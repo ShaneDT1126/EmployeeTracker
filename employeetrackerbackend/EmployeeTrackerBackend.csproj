@@ -15,11 +15,10 @@
     <Folder Include="EmployeeTracker.Application\Interfaces\" />
     <Folder Include="EmployeeTracker.Application\DTOs\" />
     <Folder Include="EmployeeTracker.Application\Services\" />
-    <Folder Include="EmployeeTracker.Domain\Entities\" />
-    <Folder Include="EmployeeTracker.Domain\Enums\" />
     <Folder Include="EmployeeTracker.Infrastructure\Data\" />
     <Folder Include="EmployeeTracker.Infrastructure\Repositories\" />
     <Folder Include="EmployeeTracker.Shared\Helpers\" />
+    <Folder Include="EmployeeTracker.Shared\Responses\" />
   </ItemGroup>
 
 </Project>
