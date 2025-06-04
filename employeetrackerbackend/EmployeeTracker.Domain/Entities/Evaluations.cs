@@ -3,9 +3,15 @@
     public class Evaluations
     {
         public Guid Id { get; set; }
-        public Guid EmployeeId { get; set; }
-        public Guid ManagerId { get; set; }
         public DateTime EvaluationDate { get; set; } = DateTime.UtcNow;
-        public string SummaryComments { get; set; } = string.Empty;
+
+        // Foreign keys
+        public Guid EvaluatedUserId { get; set; }
+        public Guid EvaluatorUserId { get; set; }
+
+
+        // Navigation properties
+        public ICollection<EvaluationDetails>? EvaluationDetails { get; set; } = new List<EvaluationDetails>();
+        public ICollection<Feedbacks>? Feedbacks { get; set; } = new List<Feedbacks>();
     }
 }

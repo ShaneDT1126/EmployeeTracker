@@ -5,10 +5,13 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
     public class Feedbacks
     {
         public Guid Id { get; set; }
-        public Guid FromUserId { get; set; }
-        public Guid ToUserId { get; set; }
         public string Message { get; set; } = string.Empty;
-        public EvaluationCriteriaType Tag { get; set; } 
-        public DateTime FeedbackDate { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // Foreign keys
+        public Guid EvaluationId { get; set; }
+
+        // Navigation properties
+        public Evaluations Evaluation { get; set; } = new Evaluations(); // Navigation property for evaluation
     }
 }
