@@ -26,8 +26,11 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 
         // Navigation properties
         public Users? Manager { get; set; } // Self-referencing relationship for manager
-        public ICollection<Users>? TeamMembers { get; set; } // Team members under this manager
+        public ICollection<Users>? TeamMembers { get; set; } = new List<Users>();// Team members under this manager
         public Departments Departments { get; set; } = new Departments(); // Navigation property for department
+        public ICollection<Goals>? Goals { get; set; } = new List<Goals>(); // Navigation property for goals
+        public ICollection <Goals>? ManagedGoals { get; set; } = new List<Goals>(); // Goals created and managed by this user
+        public ICollection<Evaluations>? Evaluations { get; set; } = new List<Evaluations>(); // Navigation property for evaluations
 
 
     }

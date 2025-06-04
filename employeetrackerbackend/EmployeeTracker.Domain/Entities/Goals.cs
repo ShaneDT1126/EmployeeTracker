@@ -7,9 +7,17 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public Guid EmployeeId { get; set; }
         public DateTime StartDate { get; set; } = DateTime.UtcNow;
         public DateTime EndDate { get; set; } = DateTime.UtcNow.AddMonths(1); // Default to one month from start date
         public Status Status { get; set; } = Status.NotStarted; // Default status
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // Foreign keys
+        public Guid EmployeeId { get; set; } // The user to whom the goal belongs
+        public Guid ManagerId { get; set; } // The manager who creates the goal
+
+        // Navigation properties
+        public Users Employee { get; set; } = new Users(); // Navigation property for employee
+        public Users Manager { get; set; } = new Users(); // Navigation property for manager
     }
 }
