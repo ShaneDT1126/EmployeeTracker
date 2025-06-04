@@ -22,7 +22,7 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 
         //Foreign keys
         public Guid? ManagerId { get; set; }
-        public int? DepartmentId { get; set; }
+        public Guid? DepartmentId { get; set; }
 
         // Navigation properties
         public Users? Manager { get; set; } // Self-referencing relationship for manager
