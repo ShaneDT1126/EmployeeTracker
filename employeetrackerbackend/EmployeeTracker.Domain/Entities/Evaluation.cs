@@ -11,7 +11,7 @@
 
 
         // Navigation properties
-        public ICollection<EvaluationDetails>? EvaluationDetails { get; set; } = new List<EvaluationDetails>();
+        public ICollection<EvaluationDetail>? EvaluationDetails { get; set; } = new List<EvaluationDetail>();
         public ICollection<Feedbacks>? Feedbacks { get; set; } = new List<Feedbacks>();
     }
 }

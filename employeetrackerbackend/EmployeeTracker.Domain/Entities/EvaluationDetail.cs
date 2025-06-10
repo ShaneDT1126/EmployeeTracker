@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 {
-    public class EvaluationDetails
+    public class EvaluationDetail
     {
         public Guid Id { get; set; }
         public EvaluationCriteriaType EvaluationCriteriaType { get; set; }

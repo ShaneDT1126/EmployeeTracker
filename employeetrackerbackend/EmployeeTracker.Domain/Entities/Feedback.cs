@@ -12,6 +12,6 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
         public Guid EvaluationId { get; set; }
 
         // Navigation properties
-        public Evaluations Evaluation { get; set; } = new Evaluations(); // Navigation property for evaluation
+        public Evaluation Evaluation { get; set; } = new Evaluation(); // Navigation property for evaluation
     }
 }

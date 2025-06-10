@@ -23,6 +23,9 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Infrastructure.Data
             base.OnModelCreating(modelBuilder);
             // Add any additional model configurations here
 
+            // Relationship configurations
+
+
 
         }
     }
