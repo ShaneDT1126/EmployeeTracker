@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
@@ -15,7 +25,7 @@
     <Folder Include="EmployeeTracker.Application\Interfaces\" />
     <Folder Include="EmployeeTracker.Application\DTOs\" />
     <Folder Include="EmployeeTracker.Application\Services\" />
-    <Folder Include="EmployeeTracker.Infrastructure\Data\" />
+    <Folder Include="EmployeeTracker.Infrastructure\Configurations\" />
     <Folder Include="EmployeeTracker.Infrastructure\Repositories\" />
     <Folder Include="EmployeeTracker.Shared\Helpers\" />
     <Folder Include="EmployeeTracker.Shared\Responses\" />
