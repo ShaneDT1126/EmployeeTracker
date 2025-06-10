@@ -1,6 +1,6 @@
 ﻿namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 {
-    public class Evaluations
+    public class Evaluation
     {
         public Guid Id { get; set; }
         public DateTime EvaluationDate { get; set; } = DateTime.UtcNow;
@@ -11,7 +11,9 @@
 
 
         // Navigation properties
+        public User EvaluatedEmployee { get; set; } = new User(); // The employee being evaluated
+        public User Manager { get; set; } = new User(); // The manager who evaluates the user
         public ICollection<EvaluationDetail>? EvaluationDetails { get; set; } = new List<EvaluationDetail>();
-        public ICollection<Feedbacks>? Feedbacks { get; set; } = new List<Feedbacks>();
+        public ICollection<Feedback>? Feedbacks { get; set; } = new List<Feedback>();
     }
 }
