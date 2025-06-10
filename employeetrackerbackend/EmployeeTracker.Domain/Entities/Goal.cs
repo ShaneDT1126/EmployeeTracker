@@ -2,7 +2,7 @@
 
 namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 {
-    public class Goals
+    public class Goal
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
@@ -17,7 +17,7 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
         public Guid ManagerId { get; set; } // The manager who creates the goal
 
         // Navigation properties
-        public Users Employee { get; set; } = new Users(); // Navigation property for employee
-        public Users Manager { get; set; } = new Users(); // Navigation property for manager
+        public User Employee { get; set; } = new User(); // Navigation property for employee
+        public User Manager { get; set; } = new User(); // Navigation property for manager
     }
 }
