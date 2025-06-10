@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
 {
-    public class Users
+    public class User
     {
         public Guid Id { get; set; }
         [Required(ErrorMessage = "First name is required")]
@@ -25,11 +25,12 @@ namespace EmployeeTrackerBackend.EmployeeTracker.Domain.Entities
         public Guid? DepartmentId { get; set; }
 
         // Navigation properties
-        public Users? Manager { get; set; } // Self-referencing relationship for manager
-        public ICollection<Users>? TeamMembers { get; set; } = new List<Users>();// Team members under this manager
-        public Departments Departments { get; set; } = new Departments(); // Navigation property for department
-        public ICollection<Goals>? Goals { get; set; } = new List<Goals>(); // Navigation property for goals
-        public ICollection <Goals>? ManagedGoals { get; set; } = new List<Goals>(); // Goals created and managed by this user
-        public ICollection<Evaluations>? Evaluations { get; set; } = new List<Evaluations>(); // Navigation property for evaluations
+        public User? Manager { get; set; } // Self-referencing relationship for manager
+        public ICollection<User>? TeamMembers { get; set; } = new List<User>();// Team members under this manager
+        public Department Departments { get; set; } = new Department(); // Navigation property for department
+        public ICollection<Goal>? Goals { get; set; } = new List<Goal>(); // Navigation property for goals
+        public ICollection <Goal>? ManagedGoals { get; set; } = new List<Goal>(); // Goals created and managed by this user
+        public ICollection<Evaluation>? Evaluations { get; set; } = new List<Evaluation>(); // Navigation property for evaluations
+        public ICollection<Evaluation>? ManagedEvaluations { get; set; } = new List<Evaluation>(); // Evaluations managed by this user
     }
 }
