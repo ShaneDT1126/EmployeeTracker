@@ -1,4 +1,4 @@
-//using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-//// Add Entity Framework Core with SQL Server support
-//builder.Services.AddDbContext<EmployeeTrackerBackend.EmployeeTracker.Infrastructure.Data.ApplicationDBContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add Entity Framework Core with SQL Server support
+builder.Services.AddDbContext<EmployeeManagementSystem.Infrastructure.Data.ApplicationDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
