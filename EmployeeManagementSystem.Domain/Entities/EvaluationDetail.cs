@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementSystem.Domain.Entities
 {
-    public class EvaluationDetails
+    public class EvaluationDetail
     {
         public Guid Id { get; set; }
         public EvaluationCriteriaType EvaluationCriteriaType { get; set; } = EvaluationCriteriaType.Communication; // Default criteria type
