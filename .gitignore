@@ -22,7 +22,7 @@ Properties/
 
 # Entity Framework Migrations (optional)
 # Remove this line if you want to track them
-EmployeeTracker.Infrastructure/Data/Migrations/
+Migrations/
 
 # Secrets & config
 secrets.json
