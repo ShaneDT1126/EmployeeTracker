@@ -10,8 +10,6 @@ namespace EmployeeManagementSystem.Domain.Entities
     public class Feedback
     {
         public Guid Id { get; set; }
-        [Required]
-        [StringLength(800, ErrorMessage = "Feedback message cannot be longer than 800 characters")]
         public string Message { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

@@ -12,9 +12,7 @@ namespace EmployeeManagementSystem.Domain.Entities
     {
         public Guid Id { get; set; }
         public EvaluationCriteriaType EvaluationCriteriaType { get; set; } = EvaluationCriteriaType.Communication; // Default criteria type
-        [Range(1, 5, ErrorMessage = "Score must be between 1 and 5.")]
         public int Score { get; set; }
-        [StringLength(500, ErrorMessage = "Comment cannot be longer than 500 characters.")]
         public string? Comment { get; set; } = string.Empty;
 
         // Freign key
