@@ -1,4 +1,4 @@
-﻿namespace EmployeeManagementSystem.API.Controllers
+﻿namespace EmployeeManagementSystem.API.Controllers.Department
 {
     public class DepartmentController
     {
