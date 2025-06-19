@@ -46,7 +46,19 @@ namespace EmployeeManagementSystem.Application.Services
 
         public async Task<UserDTO?> GetUserByIdAsync(Guid id, Guid requesterID, UserRole requestingRole)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return requestingRole switch
+            {
+                UserRole.Admin => user.ToAdminUserDTO(),
+                UserRole.Manager when user.Id == requesterID => user.ToManagerUserDTO(),
+                UserRole.Employee when user.Id == requesterID => user.ToEmployeeUserDTO(),
+                _ => throw new UnauthorizedAccessException("You do not have permission to view this user.")
+            };
         }
 
         public async Task<UserDTO?> UpdateUserAsync(Guid id, UserDTO user, Guid requesterId, UserRole requestingRole)
