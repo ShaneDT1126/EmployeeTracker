@@ -17,9 +17,17 @@ namespace EmployeeManagementSystem.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<UserCreateAndUpdateDTO> CreateUserAsync(UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
+        public async Task<UserViewDTO> CreateUserAsync(UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
         {
-            throw new NotImplementedException();
+            if (requestingRole != UserRole.Admin)
+            {
+                throw new UnauthorizedAccessException("Only admins can create users.");
+            }
+
+            var userEntity = user.ToAdminUserCreateEntity();
+            var newUser = await _userRepository.CreateUserAsync(userEntity);
+
+            return newUser.ToAdminUserViewDTO();
         }
 
         public async Task<UserViewDTO?> DeleteUserAsync(Guid id, Guid requesterId, UserRole requestingRole)
@@ -62,7 +70,7 @@ namespace EmployeeManagementSystem.Application.Services
             };
         }
 
-        public async Task<UserCreateAndUpdateDTO?> UpdateUserAsync(Guid id, UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
+        public async Task<UserViewDTO?> UpdateUserAsync(Guid id, UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
         {
             throw new NotImplementedException();
         }
