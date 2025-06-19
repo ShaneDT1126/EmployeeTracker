@@ -8,32 +8,35 @@ namespace EmployeeManagementSystem.Application.Mappers.User
 {
     public static class UserMapper
     {
-        public static DTOs.User.UserDTO ToEmployeeUserDTO (this Domain.Entities.User user)
+        public static DTOs.User.UserViewDTO ToEmployeeUserViewDTO (this Domain.Entities.User user)
         {
-            return new DTOs.User.UserDTO
+            return new DTOs.User.UserViewDTO
             {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
+                DepartmentName = user.Departments?.Name ?? string.Empty,
+                ManagerName = user.Manager != null ? $"{user.Manager.FirstName} {user.Manager.LastName}" : string.Empty,
             };
         }
 
-        public static DTOs.User.UserDTO ToManagerUserDTO(this Domain.Entities.User user)
+        public static DTOs.User.UserViewDTO ToManagerUserViewDTO(this Domain.Entities.User user)
         {
-            return new DTOs.User.UserDTO
+            return new DTOs.User.UserViewDTO
             {
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                ManagerId = user.ManagerId,
-                DepartmentId = user.DepartmentId
+                DepartmentName = user.Departments?.Name ?? string.Empty,
+                ManagerName = user.Manager != null ? $"{user.Manager.FirstName} {user.Manager.LastName}" : string.Empty,
+
             };
         }
 
-        public static DTOs.User.UserDTO ToAdminUserDTO(this Domain.Entities.User user)
+        public static DTOs.User.UserViewDTO ToAdminUserViewDTO(this Domain.Entities.User user)
         {
-            return new DTOs.User.UserDTO
+            return new DTOs.User.UserViewDTO
             {
                 Id = user.Id,
                 FirstName = user.FirstName,
@@ -41,15 +44,32 @@ namespace EmployeeManagementSystem.Application.Mappers.User
                 Email = user.Email,
                 Role = user.Role,
                 CreatedAt = user.CreatedAt,
+                ManagerName = user.Manager != null ? $"{user.Manager.FirstName} {user.Manager.LastName}" : string.Empty,
+                DepartmentName = user.Departments?.Name ?? string.Empty
+            };
+        }
+
+        public static DTOs.User.UserCreateAndUpdateDTO ToAdminUserCreateDTO(this Domain.Entities.User user)
+        {
+            return new DTOs.User.UserCreateAndUpdateDTO
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Password = user.Password,
+                Role = user.Role,
+                CreatedAt = user.CreatedAt,
                 ManagerId = user.ManagerId,
                 DepartmentId = user.DepartmentId
             };
         }
 
-        public static Domain.Entities.User ToUserEntity(this DTOs.User.UserDTO userDto)
+        public static Domain.Entities.User ToAdminUserCreateEntity(this DTOs.User.UserCreateAndUpdateDTO userDto)
         {
             return new Domain.Entities.User
             {
+                Id = userDto.Id, 
                 FirstName = userDto.FirstName,
                 LastName = userDto.LastName,
                 Email = userDto.Email,
