@@ -32,7 +32,22 @@ namespace EmployeeManagementSystem.Application.Services
 
         public async Task<UserViewDTO?> DeleteUserAsync(Guid id, Guid requesterId, UserRole requestingRole)
         {
-            throw new NotImplementedException();
+            if (requestingRole != UserRole.Admin)
+            {
+                throw new UnauthorizedAccessException("Only admins can delete users.");
+            }
+
+            var userToDelete = await _userRepository.GetUserByIdAsync(id);
+            
+            if (userToDelete == null)
+            {
+                return null; // User not found
+            
+            }
+
+            await _userRepository.DeleteUserAsync(id);
+
+            return userToDelete.ToAdminUserViewDTO();
         }
 
         public async Task<IEnumerable<UserViewDTO>> GetAllUsersAsync(Guid requesterId, UserRole requestingRole)
