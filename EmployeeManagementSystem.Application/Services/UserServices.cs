@@ -87,7 +87,44 @@ namespace EmployeeManagementSystem.Application.Services
 
         public async Task<UserViewDTO?> UpdateUserAsync(Guid id, UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
         {
-            throw new NotImplementedException();
+            var existingUser = await _userRepository.GetUserByIdAsync(id);
+            if (existingUser == null)
+            {
+                return null; // User not found
+            }
+
+            if (requestingRole == UserRole.Admin)
+            {
+                existingUser.FirstName = user.FirstName;
+                existingUser.LastName = user.LastName;
+                existingUser.Email = user.Email;
+                existingUser.Password = user.Password;
+                existingUser.Role = user.Role;
+                existingUser.ManagerId = user.ManagerId;
+                existingUser.DepartmentId = user.DepartmentId;
+            }else if (requestingRole == UserRole.Manager || requestingRole == UserRole.Employee)
+            {
+                if (existingUser.Id != requesterId && existingUser.ManagerId != requesterId)
+                {
+                    throw new UnauthorizedAccessException("You do not have permission to update this user.");
+                }
+                existingUser.FirstName = user.FirstName;
+                existingUser.LastName = user.LastName;
+                existingUser.Email = user.Email;
+            } else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to update this user.");
+            }
+
+            await _userRepository.UpdateUserAsync(id, existingUser);
+
+            return requestingRole switch
+            {
+                UserRole.Admin => existingUser.ToAdminUserViewDTO(),
+                UserRole.Manager => existingUser.ToManagerUserViewDTO(),
+                UserRole.Employee => existingUser.ToEmployeeUserViewDTO(),
+                _ => throw new NotSupportedException("Unsupported user role.")
+            };
         }
     }
 }

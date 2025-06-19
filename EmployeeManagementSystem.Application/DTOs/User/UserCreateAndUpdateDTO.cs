@@ -23,13 +23,10 @@ namespace EmployeeManagementSystem.Application.DTOs.User
         public string Password { get; set; } = string.Empty;
         [Required(ErrorMessage = "Role is required")]
         public UserRole Role { get; set; } = UserRole.Employee; // Default role is Employee
-        [Required(ErrorMessage = "Phone number is required")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         //Foreign keys
-        [Required(ErrorMessage = "Manager ID is required")]
         public Guid? ManagerId { get; set; }
-        [Required(ErrorMessage = "Department ID is required")]
         public Guid? DepartmentId { get; set; }
     }
 }
