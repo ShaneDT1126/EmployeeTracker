@@ -49,9 +49,9 @@ namespace EmployeeManagementSystem.Application.Mappers.User
             };
         }
 
-        public static DTOs.User.UserCreateAndUpdateDTO ToAdminUserCreateDTO(this Domain.Entities.User user)
+        public static DTOs.User.UserCreateDTO ToAdminUserCreateDTO(this Domain.Entities.User user)
         {
-            return new DTOs.User.UserCreateAndUpdateDTO
+            return new DTOs.User.UserCreateDTO
             {
                 Id = user.Id,
                 FirstName = user.FirstName,
@@ -65,7 +65,7 @@ namespace EmployeeManagementSystem.Application.Mappers.User
             };
         }
 
-        public static Domain.Entities.User ToAdminUserCreateEntity(this DTOs.User.UserCreateAndUpdateDTO userDto)
+        public static Domain.Entities.User ToAdminUserCreateEntity(this DTOs.User.UserUpdateDTO userDto)
         {
             return new Domain.Entities.User
             {

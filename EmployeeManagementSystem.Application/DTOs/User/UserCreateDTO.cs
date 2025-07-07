@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementSystem.Application.DTOs.User
 {
-    public class UserCreateAndUpdateDTO
+    public class UserCreateDTO
     {
         [Required(ErrorMessage = "User ID is required")]
         public Guid Id { get; set; }
