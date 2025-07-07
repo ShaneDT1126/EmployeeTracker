@@ -15,7 +15,7 @@ namespace EmployeeManagementSystem.Application.Mappers.User
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                DepartmentName = user.Departments?.Name ?? string.Empty,
+                DepartmentName = user.Department?.Name ?? string.Empty,
                 ManagerName = user.Manager != null ? $"{user.Manager.FirstName} {user.Manager.LastName}" : string.Empty,
             };
         }
@@ -28,7 +28,7 @@ namespace EmployeeManagementSystem.Application.Mappers.User
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                DepartmentName = user.Departments?.Name ?? string.Empty,
+                DepartmentName = user.Department?.Name ?? string.Empty,
                 ManagerName = user.Manager != null ? $"{user.Manager.FirstName} {user.Manager.LastName}" : string.Empty,
 
             };
@@ -45,7 +45,7 @@ namespace EmployeeManagementSystem.Application.Mappers.User
                 Role = user.Role,
                 CreatedAt = user.CreatedAt,
                 ManagerName = user.Manager != null ? $"{user.Manager.FirstName} {user.Manager.LastName}" : string.Empty,
-                DepartmentName = user.Departments?.Name ?? string.Empty
+                DepartmentName = user.Department?.Name ?? string.Empty
             };
         }
 

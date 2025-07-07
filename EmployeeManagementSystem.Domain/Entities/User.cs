@@ -25,7 +25,7 @@ namespace EmployeeManagementSystem.Domain.Entities
         // Navigation properties
         public User? Manager { get; set; } // Self-referencing relationship for manager
         public ICollection<User>? TeamMembers { get; set; } = new List<User>();// Team members under this manager
-        public Department Departments { get; set; } = new Department(); // Navigation property for department
+        public Department Department { get; set; } = new Department(); // Navigation property for department
         public ICollection<Goal>? Goals { get; set; } = new List<Goal>(); // Navigation property for goals
         public ICollection<Goal>? ManagedGoals { get; set; } = new List<Goal>(); // Goals created and managed by this user
         public ICollection<Evaluation>? Evaluations { get; set; } = new List<Evaluation>(); // Navigation property for evaluations
