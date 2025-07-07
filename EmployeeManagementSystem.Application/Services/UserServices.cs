@@ -17,7 +17,7 @@ namespace EmployeeManagementSystem.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<UserViewDTO> CreateUserAsync(UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
+        public async Task<UserViewDTO> CreateUserAsync(UserUpdateDTO user, Guid requesterId, UserRole requestingRole)
         {
             if (requestingRole != UserRole.Admin)
             {
@@ -85,7 +85,7 @@ namespace EmployeeManagementSystem.Application.Services
             };
         }
 
-        public async Task<UserViewDTO?> UpdateUserAsync(Guid id, UserCreateAndUpdateDTO user, Guid requesterId, UserRole requestingRole)
+        public async Task<UserViewDTO?> UpdateUserAsync(Guid id, UserUpdateDTO user, Guid requesterId, UserRole requestingRole)
         {
             var existingUser = await _userRepository.GetUserByIdAsync(id);
             if (existingUser == null)
